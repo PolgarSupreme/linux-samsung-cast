@@ -1,0 +1,36 @@
+# Entornos virtuales
+.venv/
+.venv-fluxcast/
+venv/
+env/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Credenciales del televisor. El token da control remoto sobre el aparato:
+# no debe acabar nunca en el repositorio.
+*token*.txt
+tv-token*
+devices.json
+
+# Ficha y fotos del aparato real: número de serie, MAC, ESN de Netflix.
+# La aplicación las lee en local; el repositorio lleva solo tests/datos/.
+INFO/*
+!INFO/README.md
+
+# Registros y capturas de diagnóstico
+*.log
+logs/
+*.jsonl
+
+# Editores
+.vscode/
+.idea/
+*.swp

@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "conexion-tv"
+version = "0.1.0.dev0"
+description = "Proyección de pantalla con audio y control remoto de televisores Samsung desde Linux"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "Polgar Supreme" }]
+
+dependencies = [
+    "samsungtvws[async]>=3.0.6",
+    "wakeonlan>=3.0",
+    "PyQt6>=6.4",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0"]
+
+[project.scripts]
+conexion-tv = "conexion_tv.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["conexion_tv*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

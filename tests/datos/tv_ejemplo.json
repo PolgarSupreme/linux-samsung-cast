@@ -1,0 +1,117 @@
+{
+  "$schema_version": "1.1",
+  "_descripcion": "Ficha de EJEMPLO, con identificadores inventados. Sirve de referencia del formato y de dato de entrada para los tests. La ficha real de un televisor vive en INFO/ y no se publica, porque contiene su numero de serie y sus direcciones MAC.",
+  "_ultima_actualizacion": "2026-01-01T00:00",
+
+  "identidad": {
+    "_fuente": ["api_v2"],
+    "_verificado": true,
+    "fabricante": "Samsung",
+    "codigo_modelo": "UE55TU7190UXZG",
+    "modelo_interno": "20_KANTSU2_UHD_BASIC",
+    "nombre_amigable": "[TV] Salon",
+    "numero_serie": "EJEMPLO0000000",
+    "serie_comercial": "TU7190 (Crystal UHD Serie 7)",
+    "anio": 2020,
+    "region": "XZG (Europa)",
+    "pulgadas": 55
+  },
+
+  "software": {
+    "_verificado": true,
+    "sistema_operativo": "Tizen",
+    "version_tizen": "5.5",
+    "version_software": "T-KTSU2DEUC-2743.0",
+    "plataforma_chipset": "KANT-SU2",
+    "api_version": "2.0.25"
+  },
+
+  "red": {
+    "_verificado": true,
+    "ip_actual": "192.168.1.50",
+    "mac_wifi": "aa:bb:cc:dd:ee:01",
+    "mac_ethernet": "aa:bb:cc:dd:ee:02",
+    "tipo_conexion_actual": "wireless",
+    "subred": "192.168.1.0/24",
+    "wifi_estandar": "Wi-Fi 5 (802.11ac)",
+    "wifi_direct": true
+  },
+
+  "identificadores": {
+    "_verificado": true,
+    "duid": "uuid:00000000-0000-4000-8000-000000000001",
+    "udn_mediarenderer": "uuid:00000000-0000-4000-8000-000000000002"
+  },
+
+  "capacidades_declaradas_por_el_tv": {
+    "TokenAuthSupport": true,
+    "remote_available": true,
+    "FrameTVSupport": false
+  },
+
+  "protocolos": {
+    "websocket_tizen": {
+      "soportado": true,
+      "verificado_en_dispositivo": true,
+      "_evidencia": "Token emitido por el televisor y teclas de volumen aceptadas.",
+      "prioridad": 1,
+      "rest_info": "http://192.168.1.50:8001/api/v2/",
+      "requiere_token": true,
+      "limitaciones_observadas": [
+        "app_list() se queda colgado sin respuesta: este modelo no devuelve el listado de aplicaciones por WebSocket."
+      ]
+    },
+
+    "miracast_wfd": {
+      "soportado": true,
+      "verificado_en_dispositivo": false,
+      "prioridad": 1,
+      "audio_incluido": true,
+      "latencia_estimada_ms": "150-500"
+    },
+
+    "dlna_upnp": {
+      "soportado": true,
+      "verificado_en_dispositivo": true,
+      "_evidencia": "Descriptor MediaRenderer con X_DLNADOC DMR-1.50 y los tres servicios anunciados por SSDP.",
+      "prioridad": 2,
+      "descriptor": "http://192.168.1.50:9197/dmr",
+      "servicios": {
+        "AVTransport:1": "http://192.168.1.50:9197/upnp/control/AVTransport1",
+        "RenderingControl:1": "http://192.168.1.50:9197/upnp/control/RenderingControl1"
+      },
+      "audio_incluido": true,
+      "latencia_estimada_ms": "5000-20000"
+    },
+
+    "wake_on_lan": {
+      "soportado": true,
+      "verificado_en_dispositivo": false,
+      "mac_a_usar": "aa:bb:cc:dd:ee:01"
+    },
+
+    "dial": {
+      "soportado": true,
+      "verificado_en_dispositivo": true,
+      "_evidencia": "SSDP anuncia urn:dial-multiscreen-org:service:dial:1."
+    },
+
+    "airplay_2": {
+      "soportado": true,
+      "verificado_en_dispositivo": false,
+      "viable_desde_linux": false
+    },
+
+    "remote_access_rdp_vnc": {
+      "soportado": true,
+      "verificado_en_dispositivo": false,
+      "prioridad": 3
+    },
+
+    "google_cast": {
+      "soportado": false,
+      "verificado_en_dispositivo": true,
+      "_evidencia": "El descubrimiento SSDP y mDNS no anuncia ningun servicio Google Cast."
+    }
+  }
+}
